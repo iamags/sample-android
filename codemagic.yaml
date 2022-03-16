@@ -1,14 +1,12 @@
 workflows:
   my-workflow:
     instance_type: linux
-
-
-
-workflows:
-  my-workflow:
     scripts:
-      - name: Build Android APK
-        working_directory: android
-        script: pwd
+ - name: Set up local properties
+        script: echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/local.properties"
+      - name: Build Android app
+        script: 
+          ./gradlew assembleRelease
     artifacts:
       - app/build/outputs/**/**/*.apk
+      
