@@ -1,6 +1,6 @@
 workflows:
   my-workflow:
-    instance_type: linux
+    instance_type: mac_mini
     scripts:
       - name: Set up local properties
         script: echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/local.properties"
